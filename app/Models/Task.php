@@ -11,12 +11,12 @@ class Task extends Model
 
     // Champs pouvant être remplis via des formulaires
     protected $fillable = [
-        'user_id',
         'title',
-        'description', // Ajout du champ description
-        'status_id',
-        'priority_id',
+        'description',
         'due_date',
+        'status',
+        'priority',
+        'user_id', // Ajoutez cette ligne
     ];
 
     // Cast des attributs pour les types spécifiques

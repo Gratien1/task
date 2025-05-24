@@ -1,27 +1,19 @@
 services:
   - type: web
     name: task
-    env: php
-    region: frankfurt
+    env: docker
     plan: free
-    buildCommand: |
-      composer install --no-dev --optimize-autoloader
-      php artisan config:cache
-      php artisan route:cache
-      php artisan view:cache
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
     branch: main
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
     envVars:
+      - key: APP_KEY
+        value: base64:hNxtdjAiuO3b+LYTD0/rRQWhl6/7rCAtaqUruoYq3J8=
       - key: APP_ENV
         value: production
       - key: APP_DEBUG
         value: false
-      - key: APP_URL
-        value: https://task.onrender.com
       - key: DB_CONNECTION
         value: sqlite
       - key: DB_DATABASE
         value: database/database.sqlite
-      - key: APP_KEY
-        value: base64:hNxtdjAiuO3b+LYTD0/rRQWhl6/7rCAtaqUruoYq3J8=
-    autoDeploy: true

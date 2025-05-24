@@ -34,6 +34,38 @@
                 position: relative;
                 z-index: 1; /* Ensure content is above the overlay */
             }
+
+            /* Slightly rounded corners */
+            .form-control {
+                border-radius: 5px !important;
+            }
+
+            .btn {
+                border-radius: 5px !important;
+            }
+
+            /* Green background for login button */
+            .btn-primary {
+                background-color: green !important;
+                border-color: green !important;
+            }
+
+            .btn-primary:hover {
+                background-color: darkgreen !important;
+                border-color: darkgreen !important;
+            }
+
+            /* Red background for Google button */
+            .btn-google {
+                background-color: red !important;
+                border-color: red !important;
+                color: white !important;
+            }
+
+            .btn-google:hover {
+                background-color: darkred !important;
+                border-color: darkred !important;
+            }
         </style>
     </head>
     <body>
@@ -50,39 +82,39 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Bienvenue! <br> Connectez-vous</h1>
                                         </div>
                                         <form method="POST" action="{{ route('login') }}" class="user">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." required>
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                                                <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Votre mot de passe" required>
                                             </div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox small">
                                                     <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                    <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                                    <label class="custom-control-label" for="customCheck">Se souvenir de moi</label>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                                Login
+                                                Se connecter
                                             </button>
                                             <hr>
                                             <a href="#" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> Login with Google
+                                                <i class="fab fa-google fa-fw"></i> Connexion avec Google
                                             </a>
                                             <a href="#" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                                <i class="fab fa-facebook-f fa-fw"></i> Connexion avec Facebook
                                             </a>
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
+                                            <a class="small" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                            <a class="small" href="{{ route('register') }}">Créer un compte !</a>
                                         </div>
                                     </div>
                                 </div>

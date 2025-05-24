@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,16 @@ Route::get('/tasks/filter', [TaskController::class, 'filter'])->name('tasks.filt
 
 // Route pour l'exportation des tâches
 Route::get('/tasks/export', [TaskController::class, 'export'])->name('tasks.export');
+
+// Route pour l'exportation des tâches (alternative)
+Route::get('/export-tasks', [TaskController::class, 'export'])->name('tasks.export');
+Route::post('/export-tasks', [TaskController::class, 'export'])->name('tasks.export');
+
+// Routes pour les rôles
+Route::middleware(['auth', 'role:Administrateur'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::put('/admin/{user}/update-role', [AdminController::class, 'updateRole'])->name('admin.updateRole');
+});
 
 // Inclusion des routes d'authentification
 require __DIR__.'/auth.php';

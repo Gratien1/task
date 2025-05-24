@@ -7,7 +7,7 @@
     <h1 class="h4 mb-2 mb-md-0">Toutes les tâches</h1>
 
     <div class="d-flex flex-column flex-md-row gap-2">
-        <a href="{{ route('tasks.create') }}" class="btn btn-primary">
+        <a href="{{ route('tasks.create') }}" class="btn text-dark" style="background-color: #FFD700;">
             <i class="fas fa-plus"></i> Ajouter une tâche
         </a>
     </div>

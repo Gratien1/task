@@ -10,8 +10,16 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, HasRoles;
+    use Notifiable, HasRoles;
+
+    /**
+     * Les rôles disponibles pour les utilisateurs.
+     */
+    public const ROLES = [
+        'Visiteur',
+        'Membre',
+        'Administrateur',
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -19,9 +27,11 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
+        'first_name',
         'name',
         'email',
         'password',
+        'role',
     ];
 
     /**
@@ -45,5 +55,14 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+    public function hasRole(string $role): bool
+    {
+        return $this->role === $role;
     }
 }

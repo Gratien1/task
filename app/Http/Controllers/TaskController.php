@@ -27,17 +27,21 @@ class TaskController extends Controller
     // Enregistre une nouvelle tâche
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string', // Validation pour le champ description
+            'description' => 'nullable|string',
+            'due_date' => 'required|date',
             'status' => 'required|string',
             'priority' => 'required|string',
-            'due_date' => 'nullable|date',
         ]);
 
-        Task::create($request->all());
+        // Ajouter automatiquement l'ID de l'utilisateur connecté
+        $validated['user_id'] = auth()->id();
 
-        return redirect()->route('tasks.index')->with('success', 'Tâche ajoutée avec succès.');
+        // Créer la tâche
+        Task::create($validated);
+
+        return redirect()->route('tasks.index')->with('success', 'Tâche créée avec succès.');
     }
 
     // Affiche le formulaire d'édition
@@ -151,7 +155,7 @@ class TaskController extends Controller
     {
         $query = Task::query();
 
-        // Appliquer le filtre par période
+        // Appliquer des filtres si nécessaire
         if ($request->period) {
             switch ($request->period) {
                 case 'today':

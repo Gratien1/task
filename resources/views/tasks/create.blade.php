@@ -42,8 +42,8 @@
                 <input type="date" name="due_date" class="form-control">
             </div>
 
-            <button class="btn btn-success">Enregistrer</button>
-            <a href="{{ route('dashboard') }}" class="btn btn-secondary">Annuler</a>
+            <button class="btn btn-warning">Enregistrer</button> <!-- Bouton jaune -->
+            <a href="{{ route('dashboard') }}" class="btn btn-danger">Annuler</a> <!-- Bouton rouge -->
         </form>
     </div>
 </div>

@@ -55,7 +55,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Bip radio Agenda</a>
+                <a class="navbar-brand" href="#">Bip radio</a>
                 <div class="d-flex">
                     <a href="{{ url('/dashboard') }}" class="btn btn-danger">Tableau de bord</a> <!-- Bouton rouge -->
                 </div>
@@ -64,7 +64,7 @@
 
         <div class="overlay"></div>
         <div class="content container">
-            <h1 class="display-4 fw-bold">AVEZ VOUS UNE TACHE OU EVENEMENT ?</h1>
+            <h1 class="display-4 fw-bold">Avez vous une tâche ou un évenement?</h1>
             <p class="lead mb-4">Connectez vous ou inscrivez vous <br> C'est très simple </p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="{{ route('login') }}" class="btn btn-success btn-lg">Se connecter</a> <!-- Bouton vert -->

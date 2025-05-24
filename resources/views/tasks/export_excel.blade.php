@@ -1,4 +1,4 @@
-<?php
+
 <table>
     <thead>
         <tr>

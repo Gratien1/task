@@ -34,6 +34,26 @@
                 position: relative;
                 z-index: 1; /* Ensure content is above the overlay */
             }
+
+            /* Remove rounded corners */
+            .form-control {
+                border-radius: 5 !important;
+            }
+
+            .btn {
+                border-radius: 5 !important;
+            }
+
+            /* Change button background to red */
+            .btn-primary {
+                background-color: red !important;
+                border-color: red !important;
+            }
+
+            .btn-primary:hover {
+                background-color: darkred !important;
+                border-color: darkred !important;
+            }
         </style>
     </head>
     <body>
@@ -50,26 +70,26 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Forgot Your Password?</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Vous avez oublié votre mot de passe ?</h1>
                                             <p class="mb-4 text-gray-600">
-                                                No problem! Just enter your email address below, and we'll send you a link to reset your password.
+                                                Pas de problème ! Saisissez simplement votre adresse électronique ci-dessous et nous vous enverrons un lien pour réinitialiser votre mot de passe.
                                             </p>
                                         </div>
                                         <form method="POST" action="{{ route('password.email') }}" class="user">
                                             @csrf
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                                <input type="email" name="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Saisissez votre adresse e-mail..." required>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-user btn-block">
-                                                Send Password Reset Link
+                                            <button type="submit" class="btn btn-primary btn-block">
+                                               Envoyer le lien de réinitialisation du mot de passe
                                             </button>
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('login') }}">Back to Login</a>
+                                            <a class="small" href="{{ route('login') }}">Retour à la connexion</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('register') }}">Create an Account!</a>
+                                            <a class="small" href="{{ route('register') }}">Créer un compte !</a>
                                         </div>
                                     </div>
                                 </div>

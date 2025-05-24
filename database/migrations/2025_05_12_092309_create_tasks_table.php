@@ -14,6 +14,7 @@ class CreateTasksTable extends Migration
             $table->enum('status', ['todo', 'in progress', 'done']);
             $table->enum('priority', ['low', 'medium', 'high']);
             $table->date('due_date')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable(); // Permet de rendre user_id optionnel
             $table->timestamps();
         });
     }

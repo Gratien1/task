@@ -6,7 +6,7 @@
         <div class="sidebar-brand-icon">
             <img src="{{ asset('img/logo.svg') }}" alt="Logo" style="width: 100px; height: 100px;">
         </div>
-        <div class="sidebar-brand-text mx-3">BIP RADIO AGENDA</div>
+        <div class="sidebar-brand-text mx-3">Agenda</div>
     </a>
 
     <!-- Divider -->
@@ -57,12 +57,23 @@
         </a>
     </li>
 
+    <!-- Bouton Accéder à l'administration (visible uniquement pour les administrateurs) -->
+    @can('access admin') <!-- Vérifie si l'utilisateur a la permission d'accéder à l'administration -->
+    <li class="nav-item mt-auto">
+        <a href="{{ route('admin.index') }}" class="btn btn-link text-white fw-bold text-decoration-none text-start">
+            <i class="fas fa-user-shield"></i> Administration
+        </a>
+    </li>
+    @endcan
+
     <!-- Bouton de déconnexion -->
-    <li class="nav-item">
-        <form method="POST" action="{{ route('logout') }}">
+    <li class="nav-item d-flex justify-content-center">
+        <form method="POST" action="{{ route('logout') }}" class="w-100 text-center">
             @csrf
-            <button type="submit" class="btn btn-danger btn-block text-white text-start">
-                <i class="fas fa-sign-out-alt"></i> Déconnexion
+            <button type="submit" class="btn text-white d-flex align-items-center justify-content-center px-3"
+                    style="background-color: transparent; width: 60%; height: 40px; font-size: 0.9rem; border-radius: 5px;">
+                <i class="fas fa-sign-out-alt mr-2"></i> <!-- Icône avec un espace à droite -->
+                Déconnexion
             </button>
         </form>
     </li>

@@ -34,6 +34,39 @@
                 position: relative;
                 z-index: 1; /* Ensure content is above the overlay */
             }
+
+            /* Slightly rounded corners */
+            .form-control {
+                border-radius: 5px !important;
+            }
+
+            .btn {
+                border-radius: 5px !important;
+                border-width: 2px !important; /* Add border thickness */
+            }
+
+            /* Green background for "Créer un compte" button */
+            .btn-primary {
+                background-color: green !important;
+                border-color: green !important;
+            }
+
+            .btn-primary:hover {
+                background-color: darkgreen !important;
+                border-color: darkgreen !important;
+            }
+
+            /* Red background for Google button */
+            .btn-google {
+                background-color: red !important;
+                border-color: red !important;
+                color: white !important;
+            }
+
+            .btn-google:hover {
+                background-color: darkred !important;
+                border-color: darkred !important;
+            }
         </style>
     </head>
     <body>
@@ -50,16 +83,16 @@
                                 <div class="col-lg-12">
                                     <div class="p-5">
                                         <div class="text-center">
-                                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">Créer un compte !</h1>
                                         </div>
                                         <form method="POST" action="{{ route('register') }}" class="user">
                                             @csrf
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" name="first_name" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name" required>
+                                                    <input type="text" name="first_name" class="form-control form-control-user" id="exampleFirstName" placeholder="Prénom" required>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="text" name="last_name" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name" required>
+                                                    <input type="text" name="name" class="form-control form-control-user" id="exampleLastName" placeholder="Nom" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -67,29 +100,29 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" required>
+                                                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Mot de passe" required>
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input type="password" name="password_confirmation" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password" required>
+                                                    <input type="password" name="password_confirmation" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Répéter le mot de passe" required>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary btn-user btn-block">
-                                                Register Account
+                                                Créer un compte !
                                             </button>
                                             <hr>
                                             <a href="#" class="btn btn-google btn-user btn-block">
-                                                <i class="fab fa-google fa-fw"></i> Register with Google
+                                                <i class="fab fa-google fa-fw"></i> Connexion avec Google
                                             </a>
                                             <a href="#" class="btn btn-facebook btn-user btn-block">
-                                                <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                                <i class="fab fa-facebook-f fa-fw"></i> Connexion avec Facebook
                                             </a>
                                         </form>
                                         <hr>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('password.request') }}">Forgot Password?</a>
+                                            <a class="small" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
                                         </div>
                                         <div class="text-center">
-                                            <a class="small" href="{{ route('login') }}">Already have an account? Login!</a>
+                                            <a class="small" href="{{ route('login') }}">Vous avez déjà un compte ? Se connecter !</a>
                                         </div>
                                     </div>
                                 </div>

@@ -8,7 +8,7 @@ class Kernel extends HttpKernel
 {
     // ...
     protected $routeMiddleware = [
-        // ...existing middlewares...
-        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        // autres middlewares...
+        'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class, // Middleware Spatie pour la gestion des rôles
     ];
 }
